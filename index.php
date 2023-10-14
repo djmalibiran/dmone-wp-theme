@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main id="main-content">
+<main id="content">
 
     <?php
     // If the front page is set to display a static page, load its content.
