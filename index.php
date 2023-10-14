@@ -2,6 +2,7 @@
 
 <main id="content">
     <section>
+        <h2>Recent Posts</h2>
         <?php
             // The Query.
             $last_three_posts = new WP_Query(array(

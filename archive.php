@@ -2,7 +2,11 @@
 get_header();
 
 // The Query.
-$the_query = new WP_Query('post_type');
+$the_query = new WP_Query(array(
+    'post_type' => array('post'),
+    'post_status' => array('publish'),
+    'posts_per_page' => '-1'
+));
 
 // The Loop.
 if ( $the_query->have_posts() ) {
