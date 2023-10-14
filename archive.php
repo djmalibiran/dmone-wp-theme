@@ -1,4 +1,6 @@
 <?php
+get_header();
+
 // The Query.
 $the_query = new WP_Query('post_type');
 
