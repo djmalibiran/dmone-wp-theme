@@ -56,7 +56,7 @@ add_action( 'wp_enqueue_scripts', 'dmone_scripts' );
 add_theme_support( 'post-thumbnails' );
 
 // TMG
-require_once get_template_directory() . '/class-tgm-plugin-activation.php';
+require_once get_template_directory() . '/assets/class-tgm-plugin-activation.php';
 
 add_action( 'tgmpa_register', 'dmone_register_required_plugins' );
 
