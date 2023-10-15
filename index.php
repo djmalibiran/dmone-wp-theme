@@ -2,6 +2,21 @@
 
 <main id="content">
     <section>
+        <div class="hero">
+            <?php
+            if (get_field('hero_title')) {
+                echo '<h1>' . esc_html(get_field('hero_title')) . '</h1>';
+            }
+            ?>
+            <?php
+            $hero_image = get_field('hero_background');
+            if ($hero_image):
+            ?>
+            <img src="<?php echo esc_url( $hero_image['url'] ); ?>" alt="<?php echo esc_attr( $hero_image['alt'] ); ?>" />
+            <?php endif; ?>
+        </div>
+    </section>
+    <section>
         <h2>Recent Posts</h2>
         <?php
             // The Query.
