@@ -1,6 +1,34 @@
 <?php
-add_theme_support( 'post-thumbnails' );
+// Remove generator
+remove_action( 'wp_head', 'wp_generator' );
 
+// Remove RSD Link
+remove_action( 'wp_head', 'rsd_link' );
+
+// Remove REST API link tag
+remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+ 
+// Remove oEmbed links
+remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
+ 
+// Remove REST API in HTTP Headers
+remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
+
+// Remove WLW Manifest
+remove_action( 'wp_head', 'wlwmanifest_link' );
+
+// Remove shortlink
+remove_action( 'wp_head', 'wp_shortlink_wp_head');
+
+// Remove unnecessary files
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10);
+
+// Title
+add_theme_support( 'title-tag' );
+
+// Register Menus
 function register_my_menus() {
     register_nav_menus(
       array(
@@ -11,34 +39,21 @@ function register_my_menus() {
 }
 add_action( 'init', 'register_my_menus' );
 
-//Remove generator
-remove_action( 'wp_head', 'wp_generator' );
+// Enqueue Stylesheet and Script
+function dmone_scripts() {
+	wp_enqueue_style('main-styles', get_template_directory_uri() . '/assets/style.css', array(), filemtime(get_template_directory() . '/assets/style.css'), false, 'screen');
+	wp_enqueue_script(
+		'main-scripts',
+		get_template_directory_uri() . '/assets/above-the-fold-scripts.js',
+		array(),
+		filemtime(get_template_directory_uri() . '/assets/above-the-fold-scripts.js'),
+		array('strategy' => 'async')
+	);
+}
+add_action( 'wp_enqueue_scripts', 'dmone_scripts' );
 
-//Remove RSD Link
-remove_action( 'wp_head', 'rsd_link' );
-
-//Remove REST API link tag
-remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
- 
-//Remove oEmbed links
-remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
- 
-//Remove REST API in HTTP Headers
-remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
-
-//Remove WLW Manifest
-remove_action( 'wp_head', 'wlwmanifest_link' );
-
-//Remove shortlink
-remove_action( 'wp_head', 'wp_shortlink_wp_head');
-
-
-remove_action('wp_head', 'print_emoji_detection_script', 7);
-remove_action('wp_print_styles', 'print_emoji_styles');
-remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10);
-
-// Title
-add_theme_support( 'title-tag' );
+// Enable Post Featured Images
+add_theme_support( 'post-thumbnails' );
 
 // TMG
 require_once get_template_directory() . '/class-tgm-plugin-activation.php';
