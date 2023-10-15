@@ -9,6 +9,11 @@
             }
             ?>
             <?php
+            if (get_field('hero_text')) {
+                echo '<p>' . esc_html(get_field('hero_text')) . '</p>';
+            }
+            ?>
+            <?php
             $hero_image = get_field('hero_background');
             if ($hero_image):
             ?>
