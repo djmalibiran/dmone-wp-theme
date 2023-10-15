@@ -31,3 +31,5 @@
         <?php previous_post_link('<h2>Previous Post</h2>%link'); ?>
     </div>
 </main>
+
+<?php wp_footer(); ?>
