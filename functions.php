@@ -33,7 +33,10 @@ function register_my_menus() {
     register_nav_menus(
       array(
         'header-menu' => __( 'Header Menu' ),
-        'extra-menu' => __( 'Extra Menu' )
+        'footer-menu-one' => __( 'Footer Menu One' ),
+        'footer-menu-two' => __( 'Footer Menu Two' ),
+        'footer-menu-three' => __( 'Footer Menu Three' ),
+        'footer-menu-four' => __( 'Footer Menu Four' )
        )
     );
 }
