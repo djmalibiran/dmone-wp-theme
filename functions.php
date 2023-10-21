@@ -42,6 +42,12 @@ function register_my_menus() {
 }
 add_action( 'init', 'register_my_menus' );
 
+// Enqueue Pico Stylesheet
+function pico_scripts() {
+	wp_enqueue_style('pico-styles', 'https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css', array(), array(), false, 'screen');
+}
+add_action( 'wp_enqueue_scripts', 'pico_scripts' );
+
 // Enqueue Stylesheet and Script
 function dmone_scripts() {
 	wp_enqueue_style('main-styles', get_template_directory_uri() . '/assets/style.css', array(), filemtime(get_template_directory() . '/assets/style.css'), false, 'screen');
