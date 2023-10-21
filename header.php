@@ -7,4 +7,8 @@
     </head>
     <body <?php body_class(); ?>>
         <a class="screen-reader-text skip-link" href="#content">Skip to content</a>
-        <?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+        <?php wp_nav_menu( array(
+            'container' => 'nav',
+            'theme_location' => 'header-menu',
+
+            )); ?>

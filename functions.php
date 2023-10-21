@@ -42,19 +42,6 @@ function register_my_menus() {
 }
 add_action( 'init', 'register_my_menus' );
 
-// Enqueue Bootstrap Stylesheet and Script
-function bootstrap_scripts() {
-	wp_enqueue_style('bootstrap-styles', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css', array(), array(), false, 'screen');
-	wp_enqueue_script(
-		'bootstrap-scripts',
-		'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js',
-		array(),
-		array(),
-		array('strategy'  => 'async')
-	);
-}
-add_action( 'wp_enqueue_scripts', 'bootstrap_scripts' );
-
 // Enqueue Stylesheet and Script
 function dmone_scripts() {
 	wp_enqueue_style('main-styles', get_template_directory_uri() . '/assets/style.css', array(), filemtime(get_template_directory() . '/assets/style.css'), false, 'screen');
