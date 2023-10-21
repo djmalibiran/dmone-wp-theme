@@ -21,21 +21,52 @@
             <?php endif; ?>
         </div>
     </section>
-    <section>
-        <div id="clients">
-        <?php if( have_rows('clients') ): ?>
-            <ul class="slides">
-            <?php while( have_rows('clients') ): the_row(); 
-                $image = get_sub_field('client_logo');
-                ?>
-                <li>
-                    <?php echo wp_get_attachment_image( $image, 'full' ); ?>
-                </li>
-            <?php endwhile; ?>
-            </ul>
-        <?php endif; ?>
-        </div>
-    </section>
+    <?php if( have_rows('clients') ): ?>
+        <style>
+            .swiper {
+                width: 100%;
+                height: 100%;
+            }
+
+            .swiper-slide {
+                text-align: center;
+                font-size: 18px;
+                background: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .swiper-slide img {
+                display: flex;
+            }
+        </style>
+        <section>
+            <div class="swiper client-logos-slider">
+                <div class="swiper-wrapper">
+                    <?php while( have_rows('clients') ): the_row(); 
+                    $image = get_sub_field('client_logo');
+                    ?>
+                    <div class="swiper-slide">
+                        <?php echo wp_get_attachment_image( $image, 'full' ); ?>
+                    </div>
+                    <?php endwhile; ?>
+                </div>
+            </div>
+        </section>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                var swiper = new Swiper(".client-logos-slider", {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                    autoplay: {
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }
+                });
+            });
+        </script>
+    <?php endif; ?>
     <section>
         <h2>Recent Posts</h2>
         <?php
