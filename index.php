@@ -22,6 +22,21 @@
         </div>
     </section>
     <section>
+        <div id="clients">
+        <?php if( have_rows('clients') ): ?>
+            <ul class="slides">
+            <?php while( have_rows('clients') ): the_row(); 
+                $image = get_sub_field('client_logo');
+                ?>
+                <li>
+                    <?php echo wp_get_attachment_image( $image, 'full' ); ?>
+                </li>
+            <?php endwhile; ?>
+            </ul>
+        <?php endif; ?>
+        </div>
+    </section>
+    <section>
         <h2>Recent Posts</h2>
         <?php
             // The Query.
