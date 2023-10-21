@@ -1,27 +1,37 @@
-<footer>
-    <?php wp_nav_menu( array(
-        'container' => 'nav',
-        'theme_location' => 'footer-menu-one'
+<footer class="container">
+    <div class="grid">
+        <aside>
+            <?php wp_nav_menu( array(
+                'container' => 'nav',
+                'theme_location' => 'footer-menu-one'
 
-        ));
-    ?>
-    <?php wp_nav_menu( array(
-        'container' => 'nav',
-        'theme_location' => 'footer-menu-two'
+                ));
+            ?>
+        </aside>
+        <aside>
+            <?php wp_nav_menu( array(
+                'container' => 'nav',
+                'theme_location' => 'footer-menu-two'
 
-        ));
-    ?>
-    <?php wp_nav_menu( array(
-        'container' => 'nav',
-        'theme_location' => 'footer-menu-three'
+                ));
+            ?>
+        </aside>
+        <aside>
+        <?php wp_nav_menu( array(
+            'container' => 'nav',
+            'theme_location' => 'footer-menu-three'
 
-        ));
-    ?>
-    <?php wp_nav_menu( array(
-        'container' => 'nav',
-        'theme_location' => 'footer-menu-four'
-
-        ));
-    ?>
+            ));
+        ?>
+        </aside>
+        <aside>
+            <?php wp_nav_menu( array(
+                'container' => 'nav',
+                'theme_location' => 'footer-menu-four'
+                
+            ));
+            ?>
+        </aside>
+    </div>
 </footer>
 </body>

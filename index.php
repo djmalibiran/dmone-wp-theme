@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main id="content">
+<main id="content" class="container">
     <section id="hero">
     <?php $hero_image = get_field('hero_background'); ?>
         <div class="px-4 py-5 my-5 text-center <?php if ($hero_image): echo 'text-white'; endif; ?>" style="background-image: url(<?php if ($hero_image): echo esc_url( $hero_image['url'] ); endif;?>)">
