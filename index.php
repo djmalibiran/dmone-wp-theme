@@ -14,8 +14,8 @@
                 echo '<p>' . esc_html(get_field('hero_text')) . '</p>';
             }
             ?>
-            <a href="#projects" class="btn btn-primary btn-lg me-3">Projects</a>
-            <a href="#donate" class="btn btn-lg <?php echo ($hero_image) ? 'btn-outline-light' : 'btn-outline-secondary'; ?>">Donate</a>
+            <a href="#projects" role="button" class="btn btn-primary btn-lg me-3">Projects</a>
+            <a href="#donate" role="button" class="<?php echo ($hero_image) ? 'contrast' : 'secondary'; ?>">Donate</a>
         </div>
     </section>
     <?php if( have_rows('clients') ): ?>
