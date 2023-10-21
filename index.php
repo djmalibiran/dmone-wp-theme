@@ -1,11 +1,12 @@
 <?php get_header(); ?>
 
 <main id="content">
-    <section>
-        <div class="hero">
+    <section id="hero">
+    <?php $hero_image = get_field('hero_background'); ?>
+        <div class="px-4 py-5 my-5 text-center <?php if ($hero_image): echo 'text-white'; endif; ?>" style="background-image: url(<?php if ($hero_image): echo esc_url( $hero_image['url'] ); endif;?>)">
             <?php
             if (get_field('hero_title')) {
-                echo '<h1>' . esc_html(get_field('hero_title')) . '</h1>';
+                echo '<h1 class="display-5 fw-bold">' . esc_html(get_field('hero_title')) . '</h1>';
             }
             ?>
             <?php
@@ -13,12 +14,8 @@
                 echo '<p>' . esc_html(get_field('hero_text')) . '</p>';
             }
             ?>
-            <?php
-            $hero_image = get_field('hero_background');
-            if ($hero_image):
-            ?>
-            <img src="<?php echo esc_url( $hero_image['url'] ); ?>" alt="<?php echo esc_attr( $hero_image['alt'] ); ?>" />
-            <?php endif; ?>
+            <a href="#projects" class="btn btn-primary btn-lg me-3">Projects</a>
+            <a href="#donate" class="btn btn-lg <?php echo ($hero_image) ? 'btn-outline-light' : 'btn-outline-secondary'; ?>">Donate</a>
         </div>
     </section>
     <?php if( have_rows('clients') ): ?>
