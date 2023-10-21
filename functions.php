@@ -55,6 +55,19 @@ function dmone_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'dmone_scripts' );
 
+// Enqueue Swiper Stylesheet and Scripts
+function swiper_scripts() {
+	wp_enqueue_style('swiper-styles', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css', array(), array(), false, 'screen');
+	wp_enqueue_script(
+		'swiper-scripts',
+		'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js',
+		array(),
+		array(),
+		array('strategy'  => 'defer')
+	);
+}
+add_action( 'wp_enqueue_scripts', 'swiper_scripts' );
+
 // Enable Post Featured Images
 add_theme_support( 'post-thumbnails' );
 
