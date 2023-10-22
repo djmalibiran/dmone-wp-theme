@@ -55,7 +55,7 @@ function dmone_scripts() {
 		'main-scripts',
 		get_template_directory_uri() . '/assets/above-the-fold-scripts.js',
 		array(),
-		filemtime(get_template_directory_uri() . '/assets/above-the-fold-scripts.js'),
+		get_template_directory_uri() . '/assets/above-the-fold-scripts.js',
 		array('strategy' => 'async')
 	);
 }
