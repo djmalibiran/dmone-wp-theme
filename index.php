@@ -81,6 +81,31 @@
         </script>
     <?php endif; ?>
     <section>
+        <h2>Highlighted Projects</h2>
+        <div class="grid">
+        <?php
+        // The Query.
+        $last_three_projects = new WP_Query(array(
+            'post_type' => array('project'),
+            'post_status' => array('publish'),
+            'post_per_page' => '3'
+        ));
+
+        // The Loop.
+        if ( $last_three_projects->have_posts() ) {
+            while ( $last_three_projects->have_posts() ) {
+                $last_three_projects->the_post();
+                echo '<article class="relative">';
+                echo '<header><a href="#" class="stretched-link"><h3>' . esc_html( get_the_title() ) . '</h3></a></header>';
+                the_post_thumbnail( 'thumbnail' );
+                echo the_excerpt();
+                echo '</article>';
+            }
+        }
+        ?>
+        </div>
+    </section>
+    <section>
         <h2>Recent Posts</h2>
         <?php
             // The Query.
