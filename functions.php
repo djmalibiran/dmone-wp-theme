@@ -55,7 +55,7 @@ function dmone_scripts() {
 		'main-scripts',
 		get_template_directory_uri() . '/assets/above-the-fold-scripts.js',
 		array(),
-		filemtime(get_template_directory_uri() . '/assets/above-the-fold-scripts.js'),
+		get_template_directory_uri() . '/assets/above-the-fold-scripts.js',
 		array('strategy' => 'async')
 	);
 }
@@ -101,7 +101,7 @@ function dmone_register_required_plugins() {
 		'parent_slug'  => 'themes.php',            // Parent menu slug.
 		'capability'   => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
 		'has_notices'  => true,                    // Show admin notices or not.
-		'dismissable'  => false,                    // If false, a user cannot dismiss the nag message.
+		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
 		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
 		'is_automatic' => true,                   // Automatically activate plugins after installation or not.
 		'message'      => '',                      // Message to output right before the plugins table.
