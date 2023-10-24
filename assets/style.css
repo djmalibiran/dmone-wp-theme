@@ -16,13 +16,12 @@
 
 /* Custom */
 
-/* nav ul {
-    gap: 1rem;
-    list-style: none;
-} */
-
 header .navbar ul {
     margin-left: 0;
+}
+
+.hero {
+    background-size: cover;
 }
 
 article header h3 {
