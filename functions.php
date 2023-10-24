@@ -42,11 +42,11 @@ function register_my_menus() {
 }
 add_action( 'init', 'register_my_menus' );
 
-// Enqueue Pico Stylesheet
-function pico_scripts() {
-	wp_enqueue_style('pico-styles', 'https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css', array(), array(), false, 'screen');
+// Enqueue Spectre Stylesheet
+function spectre_scripts() {
+	wp_enqueue_style('pico-styles', 'https://unpkg.com/spectre.css/dist/spectre.min.css', array(), array(), false, 'screen');
 }
-add_action( 'wp_enqueue_scripts', 'pico_scripts' );
+add_action( 'wp_enqueue_scripts', 'spectre_scripts' );
 
 // Enqueue Stylesheet and Script
 function dmone_scripts() {
