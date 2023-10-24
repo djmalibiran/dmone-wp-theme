@@ -38,6 +38,10 @@
         </div>
     </section>
 
+    <section>
+        <?php the_content(); ?>
+    </section>
+
     <!-- Projects -->
     <section>
         <h2 class="text-center">Highlighted Projects</h2>
