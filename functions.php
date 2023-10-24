@@ -44,7 +44,7 @@ add_action( 'init', 'register_my_menus' );
 
 // Add class to Menu Li
 function custom_nav_class($classes, $item){
-    $classes[] = 'nav-item';
+    $classes[] = 'btn btn-link';
     return $classes;
 }
 add_filter('nav_menu_css_class' , 'custom_nav_class' , 10 , 2);

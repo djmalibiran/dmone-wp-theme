@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
-<main id="content" class="column col-8 col-mx-auto">
+<main id="content" class="column col-xl-12 col-8 col-mx-auto">
     <section id="hero">
     <?php $hero_image = get_field('hero_background'); ?>
-        <div class="hero hero-lg text-center <?php if ($hero_image): echo 'text-white'; endif; ?>" style="background-image: url(<?php if ($hero_image): echo esc_url( $hero_image['url'] ); endif;?>)">
+        <div class="hero hero-lg text-center <?php if ($hero_image): echo 'text-light'; endif; ?>" style="background-image: url(<?php if ($hero_image): echo esc_url( $hero_image['url'] ); endif;?>)">
             <?php
             if (get_field('hero_title')) {
                 echo '<h1 class="display-5 fw-bold">' . esc_html(get_field('hero_title')) . '</h1>';
@@ -95,7 +95,7 @@
         if ( $last_three_projects->have_posts() ) {
             while ( $last_three_projects->have_posts() ) {
                 $last_three_projects->the_post();
-                echo '<div class="column col-4">';
+                echo '<div class="column col-md-12 col-4">';
                 echo '<article class="card relative">';
                 echo '<div class="card-image">' . the_post_thumbnail( 'full', array('class' => 'img-responsive') ) . '</div>';
                 echo '<header class="card-header"><h3 class="card-title"><a href="#" class="stretched-link">' . esc_html( get_the_title() ) . '</a></h3></header>';
