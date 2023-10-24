@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
-<main id="content" class="container">
+<main id="content" class="column col-8 col-mx-auto">
     <section id="hero">
     <?php $hero_image = get_field('hero_background'); ?>
-        <div class="px-4 py-5 my-5 text-center <?php if ($hero_image): echo 'text-white'; endif; ?>" style="background-image: url(<?php if ($hero_image): echo esc_url( $hero_image['url'] ); endif;?>)">
+        <div class="hero hero-lg text-center <?php if ($hero_image): echo 'text-white'; endif; ?>" style="background-image: url(<?php if ($hero_image): echo esc_url( $hero_image['url'] ); endif;?>)">
             <?php
             if (get_field('hero_title')) {
                 echo '<h1 class="display-5 fw-bold">' . esc_html(get_field('hero_title')) . '</h1>';
@@ -80,9 +80,9 @@
             });
         </script>
     <?php endif; ?>
-    <section>
+    <section class="container">
         <h2>Highlighted Projects</h2>
-        <div class="grid">
+        <div class="columns">
         <?php
         // The Query.
         $last_three_projects = new WP_Query(array(
@@ -95,13 +95,15 @@
         if ( $last_three_projects->have_posts() ) {
             while ( $last_three_projects->have_posts() ) {
                 $last_three_projects->the_post();
-                echo '<article class="relative">';
-                echo '<header><h3><a href="#" class="stretched-link">' . esc_html( get_the_title() ) . '</a></h3></header>';
-                the_post_thumbnail( 'thumbnail' );
-                echo the_excerpt();
+                echo '<div class="column col-4">';
+                echo '<article class="card relative">';
+                echo '<div class="card-image">' . the_post_thumbnail( 'full', array('class' => 'img-responsive') ) . '</div>';
+                echo '<header class="card-header"><h3 class="card-title"><a href="#" class="stretched-link">' . esc_html( get_the_title() ) . '</a></h3></header>';
+                
+                echo '<p class="card-body">' . get_the_excerpt() . '</p>';
                 $project_duration = get_field('project_duration');
                 if( $project_duration ): ?>
-                <footer>
+                <footer class="card-footer">
                 <dl>
                     <dt>Project Duration:</dt>
                     <dd>Started: <?php echo $project_duration['project_date_started']; ?></dd>
@@ -112,6 +114,7 @@
                 </footer>
                 <?php endif;
                 echo '</article>';
+                echo '</div>';
             }
         }
         ?>
