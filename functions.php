@@ -42,9 +42,19 @@ function register_my_menus() {
 }
 add_action( 'init', 'register_my_menus' );
 
+// Add class to Menu Li
+function custom_nav_class($classes, $item){
+    $classes[] = 'nav-item';
+    return $classes;
+}
+add_filter('nav_menu_css_class' , 'custom_nav_class' , 10 , 2);
+
+
 // Enqueue Spectre Stylesheet
 function spectre_scripts() {
-	wp_enqueue_style('pico-styles', 'https://unpkg.com/spectre.css/dist/spectre.min.css', array(), array(), false, 'screen');
+	wp_enqueue_style('spectre-styles', 'https://unpkg.com/spectre.css/dist/spectre.min.css', array(), array(), false, 'screen');
+	wp_enqueue_style('spectre-exp-styles', 'https://unpkg.com/spectre.css/dist/spectre-exp.min.css', array(), array(), false, 'screen');
+	wp_enqueue_style('spectre-icons', 'https://unpkg.com/spectre.css/dist/spectre-icons.min.css', array(), array(), false, 'screen');
 }
 add_action( 'wp_enqueue_scripts', 'spectre_scripts' );
 
