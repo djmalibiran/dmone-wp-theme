@@ -96,9 +96,21 @@
             while ( $last_three_projects->have_posts() ) {
                 $last_three_projects->the_post();
                 echo '<article class="relative">';
-                echo '<header><a href="#" class="stretched-link"><h3>' . esc_html( get_the_title() ) . '</h3></a></header>';
+                echo '<header><h3><a href="#" class="stretched-link">' . esc_html( get_the_title() ) . '</a></h3></header>';
                 the_post_thumbnail( 'thumbnail' );
                 echo the_excerpt();
+                $project_duration = get_field('project_duration');
+                if( $project_duration ): ?>
+                <footer>
+                <dl>
+                    <dt>Project Duration:</dt>
+                    <dd>Started: <?php echo $project_duration['project_date_started']; ?></dd>
+                    <dd><?php echo $project_duration['project_ongoing'][0] ? 'Ongoing' : 'Ended: ' . $project_duration['project_date_ended']; ?></dd>
+                    <dt>Funds Raised:</dt>
+                    <dd><?php echo (get_field('funds_raised')) ? '$' . number_format(get_field('funds_raised')) : ''; ?></dd>
+                </dl>
+                </footer>
+                <?php endif;
                 echo '</article>';
             }
         }
