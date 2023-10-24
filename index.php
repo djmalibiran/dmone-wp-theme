@@ -95,7 +95,7 @@
                     $client_logo = get_sub_field('client_logo', 'option');
                     ?>
                     <div class="swiper-slide">
-                        <?php echo wp_get_attachment_image( $client_logo['id'], 'full' ); ?>
+                        <?php echo wp_get_attachment_image( $client_logo['id'], 'full', false, array('class' => 'img-responsive' )); ?>
                     </div>
                     <?php endwhile; ?>
                 </div>
