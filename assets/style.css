@@ -28,3 +28,31 @@ header .navbar ul {
 article header h3 {
     margin: 0;
 }
+
+.card p:last-of-type {
+    margin: 0;
+}
+
+.btn {
+    width: max-content;
+}
+
+/* Swiper */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc((100% - 30px) / 2) !important;
+}
+
+.swiper-slide img {
+    display: flex;
+}

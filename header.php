@@ -16,7 +16,7 @@
                     'theme_location' => 'header-menu',
                     
                 )); ?>
-                <a href="/" class="navbar-center"><img src="<?php site_icon_url(32); ?>" alt="<?php echo get_bloginfo('name'); ?> logo"> </a>
+                <a href="/" class="navbar-center"><img src="<?php site_icon_url(32); ?>" alt="<?php echo get_bloginfo('name'); ?> logo" width="32" height="32"></a>
                 <?php wp_nav_menu( array(
                     'container' => '',
                     'container_class' => 'navbar',
