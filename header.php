@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php wp_head(); ?>
     </head>
-    <body <?php body_class('container'); ?>>
+    <body>
         <header class="columns">
             <div class="navbar column col-8 col-mx-auto">
                 <a class="screen-reader-text skip-link" href="#content">Skip to content</a>
