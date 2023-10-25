@@ -16,6 +16,15 @@
 
 /* Custom */
 
+:root {
+    --space: 1rem;
+}
+
+.py-5 {
+    padding-top: calc(var(--space) * 2.5);
+    padding-bottom: calc(var(--space) * 2.5);
+}
+
 header .navbar ul {
     margin-left: 0;
 }
