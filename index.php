@@ -42,82 +42,9 @@
         <?php the_content(); ?>
     </section>
 
-    <!-- Projects -->
-    <section>
-        <h2 class="text-center">Highlighted Projects</h2>
-        <div class="columns">
-        <?php
-        // The Query.
-        $last_three_projects = new WP_Query(array(
-            'post_type' => array('project'),
-            'post_status' => array('publish'),
-            'posts_per_page' => '2'
-        ));
+    
 
-        // The Loop.
-        if ( $last_three_projects->have_posts() ) {
-            while ( $last_three_projects->have_posts() ) {
-                $last_three_projects->the_post();
-                echo '<div class="column col-md-12 col-4">';
-                echo '<article class="card relative">';
-                echo '<div class="card-image">';
-                the_post_thumbnail( array(637, 425), array('class' => 'img-responsive') );
-                echo '</div>';
-                echo '<header class="card-header"><h3 class="card-title"><a href="#" class="stretched-link">' . esc_html( get_the_title() ) . '</a></h3></header>';
-                
-                echo '<p class="card-body">' . esc_html( get_the_excerpt() ) . '</p>';
-
-                $project_duration = get_field('project_duration');
-                if( $project_duration ): ?>
-                <footer class="card-footer">
-                <dl>
-                    <dt>Project Duration:</dt>
-                    <dd>Started: <?php echo $project_duration['project_date_started']; ?></dd>
-                    <dd><?php echo $project_duration['project_ongoing'] ? 'Ongoing' : 'Ended: ' . $project_duration['project_date_ended']; ?></dd>
-                    <dt>Funds Raised:</dt>
-                    <dd><?php echo (get_field('funds_raised')) ? '$' . number_format(get_field('funds_raised')) : ''; ?></dd>
-                </dl>
-                </footer>
-                <?php endif;
-
-                echo '</article>';
-                echo '</div>';
-            }
-            wp_reset_postdata();
-        }
-        ?>
-        </div>
-    </section>
-
-    <!-- Sponsors -->
-    <?php if( have_rows('clients', 'option') ): ?>
-        <section id="clients">
-            <h2 class="text-center">Sponsors</h2>
-            <div class="swiper client-logos-slider">
-                <div class="swiper-wrapper">
-                    <?php while( have_rows('clients', 'option') ): the_row(); 
-                    $client_logo = get_sub_field('client_logo', 'option');
-                    ?>
-                    <div class="swiper-slide">
-                        <?php echo wp_get_attachment_image( $client_logo['id'], 'full', false, array('class' => 'img-responsive' )); ?>
-                    </div>
-                    <?php endwhile; ?>
-                </div>
-            </div>
-        </section>
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                var swiper = new Swiper(".client-logos-slider", {
-                    slidesPerView: 4,
-                    spaceBetween: 30,
-                    autoplay: {
-                        delay: 2500,
-                        disableOnInteraction: false,
-                    }
-                });
-            });
-        </script>
-    <?php endif; ?>
+    
 
     <!-- Posts -->
     <section>
