@@ -182,13 +182,11 @@
     <?php endif; ?>
 
     <!-- Posts -->
-    
     <?php $last_three_posts = new WP_Query(array(
         'post_type' => array('post'),
         'post_status' => array('publish'),
         'posts_per_page' => '3'
     ));
-    
     if ( $last_three_posts->have_posts() ): ?>
         <section class="container">
             <div class="column col-md-12 col-8 col-mx-auto">
