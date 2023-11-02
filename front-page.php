@@ -98,21 +98,22 @@
     <?php endif; ?>
 
     <!-- Projects -->
-    <section class="container">
-        <div class="columns">
-            <div class="column col-md-12 col-8 col-mx-auto">
-                <h2 class="text-center">Highlighted Projects</h2>
-                <div class="columns">
-                    <?php
-                    // The Query.
-                    $last_three_projects = new WP_Query(array(
-                        'post_type' => array('project'),
-                        'post_status' => array('publish'),
-                        'posts_per_page' => '3'
-                    ));
+    <?php
+    // The Query.
+    $last_three_projects = new WP_Query(array(
+        'post_type' => array('project'),
+        'post_status' => array('publish'),
+        'posts_per_page' => '3'
+    ));
 
-                    // The Loop.
-                    if ( $last_three_projects->have_posts() ) {
+    // The Loop.
+    if ( $last_three_projects->have_posts() ) : ?>
+        <section class="container">
+            <div class="columns">
+                <div class="column col-md-12 col-8 col-mx-auto">
+                    <h2 class="text-center">Highlighted Projects</h2>
+                    <div class="columns">
+                        <?php
                         while ( $last_three_projects->have_posts() ) {
                             $last_three_projects->the_post();
                             echo '<div class="column col-md-12 col-4">';
@@ -141,11 +142,12 @@
                             echo '</div>';
                         }
                         wp_reset_postdata();
-                    } ?>
+                        ?>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    <?php endif; ?>
 
     <!-- Sponsors -->
     <?php if( have_rows('clients', 'option') ): ?>
