@@ -180,6 +180,43 @@
             </div>
         </div>
     <?php endif; ?>
+
+    <!-- Posts -->
+    
+    <?php $last_three_posts = new WP_Query(array(
+        'post_type' => array('post'),
+        'post_status' => array('publish'),
+        'posts_per_page' => '3'
+    ));
+    
+    if ( $last_three_posts->have_posts() ): ?>
+        <section class="container">
+            <div class="column col-md-12 col-8 col-mx-auto">
+                <h2>Recent Posts</h2>
+                <?php
+                while ( $last_three_posts->have_posts() ) {
+                    $last_three_posts->the_post();
+                    echo '<h3>' . esc_html( get_the_title() ) . '</h3>';
+                    echo the_excerpt();
+                }
+                wp_reset_postdata();
+                ?>
+            </div>
+        </section>
+    <?php endif; ?>
+
+    <!-- CTA -->
+    <?php
+        $cta_heading = get_field('cta_heading', 'option');
+        $cta_short_paragraph = get_field('cta_short_paragraph', 'option');
+        if ($cta_heading && $cta_short_paragraph) : ?>
+            <section id="cta">
+                <h2><?php echo $cta_heading; ?></h2>
+                <p><?php echo $cta_short_paragraph; ?></p>
+            </section>
+        <?php endif; ?>
+
+
 </main>
 
 
