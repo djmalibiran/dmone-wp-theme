@@ -1,0 +1,66 @@
+[
+    {
+        "key": "group_6537d8ab5baea",
+        "title": "CTA",
+        "fields": [
+            {
+                "key": "field_6537d8ab93a64",
+                "label": "CTA Heading",
+                "name": "cta_heading",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Join Us in Making a Lasting Impact",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_6537d8c693a65",
+                "label": "CTA Short Paragraph",
+                "name": "cta_short_paragraph",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Your support plays a pivotal role in preserving our planet's green heritage. Whether it's by donating or becoming an active participant in our mission, every effort counts towards a greener tomorrow.",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "site-settings"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    }
+]
