@@ -33,11 +33,12 @@ function register_my_menus() {
     register_nav_menus(
       array(
         'header-menu' => __( 'Header Menu' ),
+        'header-menu-right' => __( 'Header Menu Right' ),
         'footer-menu-one' => __( 'Footer Menu One' ),
         'footer-menu-two' => __( 'Footer Menu Two' ),
         'footer-menu-three' => __( 'Footer Menu Three' ),
         'footer-menu-four' => __( 'Footer Menu Four' )
-       )
+	  )
     );
 }
 add_action( 'init', 'register_my_menus' );

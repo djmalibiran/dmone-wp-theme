@@ -98,21 +98,22 @@
     <?php endif; ?>
 
     <!-- Projects -->
-    <section class="container">
-        <div class="columns">
-            <div class="column col-md-12 col-8 col-mx-auto">
-                <h2 class="text-center">Highlighted Projects</h2>
-                <div class="columns">
-                    <?php
-                    // The Query.
-                    $last_three_projects = new WP_Query(array(
-                        'post_type' => array('project'),
-                        'post_status' => array('publish'),
-                        'posts_per_page' => '3'
-                    ));
+    <?php
+    // The Query.
+    $last_three_projects = new WP_Query(array(
+        'post_type' => array('project'),
+        'post_status' => array('publish'),
+        'posts_per_page' => '3'
+    ));
 
-                    // The Loop.
-                    if ( $last_three_projects->have_posts() ) {
+    // The Loop.
+    if ( $last_three_projects->have_posts() ) : ?>
+        <section class="container">
+            <div class="columns">
+                <div class="column col-md-12 col-8 col-mx-auto">
+                    <h2 class="text-center">Highlighted Projects</h2>
+                    <div class="columns">
+                        <?php
                         while ( $last_three_projects->have_posts() ) {
                             $last_three_projects->the_post();
                             echo '<div class="column col-md-12 col-4">';
@@ -141,11 +142,12 @@
                             echo '</div>';
                         }
                         wp_reset_postdata();
-                    } ?>
+                        ?>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    <?php endif; ?>
 
     <!-- Sponsors -->
     <?php if( have_rows('clients', 'option') ): ?>
@@ -182,21 +184,21 @@
     <?php endif; ?>
 
     <!-- Posts -->
-    
     <?php $last_three_posts = new WP_Query(array(
         'post_type' => array('post'),
         'post_status' => array('publish'),
         'posts_per_page' => '3'
     ));
-    
     if ( $last_three_posts->have_posts() ): ?>
-        <section class="container">
+        <section class="container py-5">
             <div class="column col-md-12 col-8 col-mx-auto">
                 <h2>Recent Posts</h2>
                 <?php
                 while ( $last_three_posts->have_posts() ) {
                     $last_three_posts->the_post();
-                    echo '<h3>' . esc_html( get_the_title() ) . '</h3>';
+                    echo '<article class="post">';
+                    echo '<header><h3><a href="' . esc_url( get_permalink() ) . '">' . esc_html( get_the_title() ) . '</a></h3></header>';
+
                     echo the_excerpt();
                 }
                 wp_reset_postdata();
@@ -210,9 +212,11 @@
         $cta_heading = get_field('cta_heading', 'option');
         $cta_short_paragraph = get_field('cta_short_paragraph', 'option');
         if ($cta_heading && $cta_short_paragraph) : ?>
-            <section id="cta">
-                <h2><?php echo $cta_heading; ?></h2>
-                <p><?php echo $cta_short_paragraph; ?></p>
+            <section id="cta" class="hero bg-success text-white">
+                <div class="column col-md-12 col-8 col-mx-auto">
+                    <h2><?php echo $cta_heading; ?></h2>
+                    <p><?php echo $cta_short_paragraph; ?></p>
+                </div>
             </section>
         <?php endif; ?>
 
@@ -221,4 +225,4 @@
 
 
 <?php wp_footer(); ?>
-<?php get_footer(); ?>
+<!-- <?php get_footer(); ?> -->

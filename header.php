@@ -22,7 +22,7 @@
                     'container' => '',
                     'container_class' => 'navbar',
                     'menu_class' => 'navbar-section',
-                    'theme_location' => 'header-menu',
+                    'theme_location' => 'header-menu-right',
 
                 )); ?>
             </div>
