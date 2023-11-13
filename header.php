@@ -6,6 +6,7 @@
         <?php wp_head(); ?>
     </head>
     <body>
+    <?php wp_body_open(); ?>
         <header class="columns">
             <div class="navbar column col-8 col-mx-auto">
                 <a class="screen-reader-text skip-link" href="#content">Skip to content</a>
